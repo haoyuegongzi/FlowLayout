@@ -38,7 +38,11 @@ public class FlowGravityLayout extends ViewGroup {
     }
 
     // xml布局里面直接使用该View的时候，调用。Android对xml布局里面View对象的解析是发生在LayoutInflater.java里面，
-    // 在这里面的inflate()方法通过反射的方式解析。
+    // 在这里面的inflate()方法通过反射的方式解析。其实我们看ViewGroup的构造方法源码可以知道：
+    // 一个入参的构造方法内部调用的是两个入参的构造方法，两个入参的构造方法内部调用的是三个入参的构造方法，
+    // 三个入参的构造方法内部调用的是四个入参的构造方法；
+    // ViewGroup的四个入参的构造方法调用的是其父类View的四个入参的构造方法。因此，最终会调用到这个方法：
+    // FlowGravityLayout(Context context, AttributeSet attrs, int defStyleAttr)
     public FlowGravityLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
